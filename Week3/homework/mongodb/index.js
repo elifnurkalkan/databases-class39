@@ -76,7 +76,9 @@ async function findEpisodesExercises(client) {
     .find({ elements: 'CLIFF' });
 
   console.log(
-    `The episodes that Bob Ross painted a CLIFF are ${'TODO: fill in variable here'}`,
+    `The episodes that Bob Ross painted a CLIFF are ${episodesCliff.map(
+      (result) => result.title,
+    )}'}`,
   );
 
   // Find all of the episode titles where Bob Ross painted a CLIFF and a LIGHTHOUSE [Should be: NIGHT LIGHT]
@@ -87,7 +89,9 @@ async function findEpisodesExercises(client) {
     .find({ $and: [{ elements: 'CLIFF' }, { elements: 'LIGHTHOUSE' }] });
 
   console.log(
-    `The episodes that Bob Ross painted a CLIFF and a LIGHTHOUSE are ${'TODO: fill in variable here'}`,
+    `The episodes that Bob Ross painted a CLIFF and a LIGHTHOUSE are ${episodeCliffLighthouse.map(
+      (result) => result.title,
+    )}`,
   );
 }
 async function updateEpisodeExercises(client) {
