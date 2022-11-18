@@ -36,7 +36,7 @@ const importData = async (client) => {
 async function getTotalPopulationByYear(client, country) {
   const pipeline = [
     {
-      $match: { Country: `${country}` },
+      $match: { Country: country },
     },
     {
       $group: {
@@ -76,10 +76,11 @@ async function getContinentInformation(client, age, year) {
             'OCEANIA',
           ],
         },
+        Year: year,
+        Age: age,
       },
     },
-    { $match: { Year: year } },
-    { $match: { Age: age } },
+
     {
       $addFields: {
         TotalPopulation: {

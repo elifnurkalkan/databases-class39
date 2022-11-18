@@ -22,7 +22,7 @@ async function transferMoney(
           $push: {
             account_changes: {
               change_number: { $size: '$account_changes' },
-              amount: amount,
+              amount: -amount,
               changed_date: new Date(),
               remark: remark,
             },
